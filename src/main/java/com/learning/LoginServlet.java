@@ -15,30 +15,18 @@ import java.io.PrintWriter;
 public class LoginServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username");
-
-        System.out.println("改变前username:" + username);
-
-//        username = new String(username.getBytes("ISO-8859-1"),"UTF-8");
-
-
-        System.out.println("username:" + username);
-
-        PrintWriter out = resp.getWriter();
-
-        out.print(username);
-        out.flush();
-        out.close();
-    }
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username");
-        System.out.println(username);
+        System.out.println("我是login.do.我运行了");
+
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
+        System.out.println("email:" + email + "password:" + password);
 
         PrintWriter out = resp.getWriter();
-        out.print(username);
-
+        if ("358981721@qq.com".equals(email) && "123".equals(password)) {
+            out.print("1");
+        } else {
+            out.print("0");
+        }
     }
 }
